@@ -6,9 +6,9 @@ A responsive React web application that showcases a collection of Kingdom Hearts
 
 ---
 
-## 📸 Preview
+## Preview
 
-![App Screenshot](./src/assets/kh1.jpg) <!-- Optional: Replace with a screenshot of your running app -->
+![App Screenshot](./src/assets/kh1.jpg) 
 
 ---
 
@@ -16,7 +16,7 @@ A responsive React web application that showcases a collection of Kingdom Hearts
 
 - **Dynamic Filtering:** Filter the collection by gaming console/platform using an automatically populated dropdown.
 - **Live Counter:** Real-time count of total games currently displayed based on active filters.
-- **Component-Based Architecture:** Modular structure dividing the app into reusable components (`Game` card, `GameCollection` grid, and main `App` layout).
+- **Component-Based Architecture:** Modular structure dividing the app into reusable components (Game card, GameCollection grid, and main App layout).
 - **Responsive Layout:** CSS grid layout designed for seamless viewing across screen sizes.
 
 ---
