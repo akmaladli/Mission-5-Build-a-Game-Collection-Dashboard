@@ -8,7 +8,7 @@ A responsive React web application that showcases a collection of Kingdom Hearts
 
 ## Preview
 
-![App Screenshot](./src/assets/Mission 5 Preview.png) 
+![App Screenshot](./src/assets/appscreenshot.png) 
 
 ---
 
