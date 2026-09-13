@@ -173,15 +173,30 @@ function App() {
   ]);
 
   const [selectedPlatform, setSelectedPlatform] = useState("All");
+  const [selectedYear, setSelectedYear] = useState("All");
 
   const platforms = ["All", ...new Set(games.map((game) => game.platform))];
+  const years = ["All", ...new Set(games.map((game) => game.year))].sort(
+    (a, b) => {
+      if (a === "All") return -1;
+      if (b === "All") return 1;
+      return a - b;
+    },
+  );
 
-  const filteredGames =
-    selectedPlatform === "All"
-      ? games
-      : games.filter((game) => {
-          return game.platform === selectedPlatform;
-        });
+  let filteredGames = games;
+
+  if (selectedPlatform !== "All") {
+    filteredGames = filteredGames.filter(
+      (game) => game.platform === selectedPlatform,
+    );
+  }
+
+  if (selectedYear !== "All") {
+    filteredGames = filteredGames.filter(
+      (game) => game.year === Number(selectedYear),
+    );
+  }
 
   return (
     <div className="app-container">
@@ -193,20 +208,38 @@ function App() {
         <p className="game-count">Total Games: {filteredGames.length}</p>
       </header>
 
-      <div className="filter-dropdown-container">
-        <label htmlFor="platform-select">Filter by Console: </label>
-        <select
-          id="platform-select"
-          className="platform-select"
-          value={selectedPlatform}
-          onChange={(e) => setSelectedPlatform(e.target.value)}
-        >
-          {platforms.map((platform) => (
-            <option key={platform} value={platform}>
-              {platform}
-            </option>
-          ))}
-        </select>
+      <div className="filter-controls">
+        <div className="filter-dropdown-container">
+          <label htmlFor="platform-select">Filter by Console: </label>
+          <select
+            id="platform-select"
+            className="platform-select"
+            value={selectedPlatform}
+            onChange={(e) => setSelectedPlatform(e.target.value)}
+          >
+            {platforms.map((platform) => (
+              <option key={platform} value={platform}>
+                {platform}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="filter-dropdown-container">
+          <label htmlFor="year-select">Filter by Release Year: </label>
+          <select
+            id="year-select"
+            className="platform-select"
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+          >
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year === "All" ? "All Years" : year}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <GameCollection games={filteredGames} />

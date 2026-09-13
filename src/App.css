@@ -51,13 +51,20 @@ body {
 }
 
 /* Filter Dropdown */
-.filter-dropdown-container {
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-bottom: 20px;
+}
+
+.filter-dropdown-container {
   background-color: #ffffff;
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid #cccccc;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 }
 
 .filter-dropdown-container label {
